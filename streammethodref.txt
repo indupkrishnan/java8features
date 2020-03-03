@@ -1,0 +1,53 @@
+
+package java8features;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Streamfunction {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+ArrayList<String> al=new ArrayList<String>();
+al.add("indu");
+al.add("subin");
+al.add("neethu");
+al.add("subin");
+al.add("neethu");
+al.add("sindu");
+al.add("subina");
+al.add("geethuu");
+System.out.println("***************************************");
+List<String> tokenlist=al.stream().collect(Collectors.toList());
+System.out.println(tokenlist);
+System.out.println("**************more than 5 chars*************************");
+//select names containing more than 5 chars
+al.stream().filter(str->str.length()>5).forEach(System.out::println);
+System.out.println("*************didtinct names**************************");
+//taking distinct names
+al.stream().distinct().forEach(System.out::println);
+System.out.println("***********startswith****************************");
+al.stream().filter((s)->s.startsWith("i")).forEach(System.out::println);
+System.out.println("***********uppercase****************************");
+al.stream().filter((s)->s.startsWith("i")).map(String::toUpperCase).forEach(System.out::println);
+System.out.println("*************sorted**************************");
+al.stream().sorted().map(String::toUpperCase).forEach(System.out::println);
+System.out.println("********distinct sorted*******************************");
+al.stream().distinct().sorted().map(String::toUpperCase).forEach(System.out::println);	
+System.out.println("***********limit upto first4****************************");
+al.stream().limit(4).forEach(System.out::println);	
+System.out.println("******************skip first4*********************");
+al.stream().skip(4).forEach(System.out::println);
+System.out.println("******************anymatch*********************");
+if(al.stream().anyMatch((String s)->s.length()==4))
+		{System.out.println("yes 4 letter word");}
+System.out.println("******************allmatch*********************");
+if(al.stream().allMatch((String s)->s.length()>3))
+{System.out.println("yes ..names greater than 3 chars");}
+System.out.println("******************nonematch*********************");
+if(al.stream().noneMatch((String s)->s.length()==2))
+{System.out.println("no names with length2");}
+	}
+
+}

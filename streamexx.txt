@@ -1,0 +1,23 @@
+
+package java8features;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class Streamex {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+ArrayList<String> al=new ArrayList<String>();
+al.add("indu");
+al.add("subin");
+al.add("neethu");
+//Collection<String> names = null;
+
+long count=al.stream().filter(str->str.length()<6).count();
+System.out.println("there are "+count+" strings with less than 6");
+
+	}
+
+}
