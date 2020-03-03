@@ -1,0 +1,36 @@
+package com.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.bean.Book;
+
+public class BookDao {
+public void saveBook(Book book)throws ClassNotFoundException{
+	Connection con = null;
+	PreparedStatement pre = null;
+	try{
+	String url = "jdbc:mysql://localhost:3306/userbook1";
+	String user = "root";
+	String password = "pranamam@NSS15";
+	
+	
+	//loading drivers
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	//creating connection
+	con = DriverManager.getConnection(url, user, password);
+	String query="insert into userreg2 values(?,?,?)";
+    PreparedStatement ps=con.prepareStatement(query);
+	ps.setInt(1, book.getId());
+	ps.setString(2, book.getName());
+	ps.setInt(3, book.getPrice());
+	ps.executeUpdate();
+//con.commit();
+	} catch (SQLException e) {
+	e.printStackTrace();
+}
+	
+}
+}
