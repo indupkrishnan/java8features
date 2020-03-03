@@ -1,0 +1,19 @@
+package java8features;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Lambdacollection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+ArrayList<String> al=new ArrayList<String>();
+al.add("indu");
+al.add("subin");
+al.add("neethu");
+//for(String s:al){System.out.println(s);
+al.forEach((s)->System.out.println(s));
+
+	}
+
+}

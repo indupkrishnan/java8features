@@ -1,0 +1,16 @@
+package java8features;
+
+interface Genericinterface<T>{
+T func(T t);
+}
+public class Genericinterfaceexample {
+public static void main(String[] args) {
+	Genericinterface<Integer>factorial=n->{
+		int res=1;
+		for(int i=1;i<=n;i++)
+			res=res*i;
+				return res;
+	};
+	System.out.println("factorial is "+factorial.func(5));
+}
+}
