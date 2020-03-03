@@ -1,0 +1,11 @@
+package com.dao;
+import java.util.*;
+
+import com.models.Books;
+public interface Bookdao {
+List<Books>getAllBooks();
+Books getBooksById(int id);
+void savebook(Books book);
+void deletebook(Books book);
+
+}

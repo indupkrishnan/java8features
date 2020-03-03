@@ -1,0 +1,36 @@
+package com.daoimpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.dao.Bookdao;
+import com.models.Books;
+public class Bookdaoimpl implements Bookdao {
+	private List<Books>books=new ArrayList();
+	public Bookdaoimpl(){
+		//books=new ArrayList();
+		books.add(new Books(111,"Java",123));
+		books.add(new Books(112,"DS",123));
+		books.add(new Books(113,"Computer Networks",123));
+	}
+	public List<Books>getAllBooks(){
+		return books;
+		
+	}
+
+	public Books getBooksById(int id){
+		Books b1=null; 
+		for(Books b:books){
+			if(b.getId()==id)
+				
+				b1=b;
+		}
+		return b1;
+	}
+	public void savebook(Books book){
+		books.add(book);
+	}
+	public void deletebook(Books book){
+		books.remove(book);
+	}
+}
